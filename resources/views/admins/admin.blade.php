@@ -13,8 +13,8 @@
 <body>
 @include('components.header')
 <div class="container d-flex justify-content-center gap-5">
-    <a href="{{route('category')}}" class="btn btn-outline-dark btn-lg" type="submit">Товары</a>
-    <a class="btn btn-outline-dark btn-lg" type="submit">Категории товаров</a>
+    <a href="{{route('product')}}" class="btn btn-outline-dark btn-lg" type="submit">Товары</a>
+    <a href="{{route('category')}}" class="btn btn-outline-dark btn-lg" type="submit">Категории товаров</a>
     <a class="btn btn-outline-dark btn-lg" type="submit">Заказы</a>
 </div>
 @yield('content')

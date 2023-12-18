@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,8 +28,12 @@ Route::middleware('auth')->group(function (){
     Route::middleware('role')->group(function (){
         Route::view('admin/', 'admins.admin')->name('admin');
         Route::get('admin/category', [CategoryController::class, 'CategoryView'])->name('category');
+        Route::get('admin/products', [ProductController::class, 'ProductView'])->name('product');
         Route::post('admin/category', [CategoryController::class, 'CategoryAdd']);
         Route::post('admin/deleteCategory{category}', [CategoryController::class, 'CategoryDelete'])->name('deleteCategory');
         Route::post('admin/editCategory{category}', [CategoryController::class, 'CategoryEdit'])->name('editCategory');
+        Route::post('admin/products', [ProductController::class, 'AddProductPost'])->name('add_product');
+        Route::post('admin/delProduct{product}', [ProductController::class, 'DeleteProductPost'])->name('deleteProduct');
+        Route::post('admin/editProduct{product}', [ProductController::class, 'EditProductPost'])->name('editProduct');
     });
 });

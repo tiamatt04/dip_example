@@ -63,7 +63,7 @@
                                                     @csrf
                                                     <div class="mb-3">
                                                         <h3 for="category_name" class="form-label text-primary">Название</h3>
-                                                        <input type="text" class="form-control @error('category_name') is-invalid @enderror" id="category_name"
+                                                        <input type="text" value="{{$category->category_name}}" class="form-control @error('category_name') is-invalid @enderror" id="category_name"
                                                                name="category_name">
                                                         @error('category_name')
                                                         <div class="invalid-feedback">
