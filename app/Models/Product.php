@@ -15,4 +15,9 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class)->first()->category_name;
     }
+
+    public function lastProduct()
+    {
+        return $this->latest()->limit(5)->get();
+    }
 }

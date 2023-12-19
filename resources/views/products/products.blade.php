@@ -83,7 +83,7 @@
             <div class="col"></div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-12">
                 @if(session()->has('edit_product'))
                     <div class="alert alert-success">Вы успешно изменили товар {{session()->get('edit_product')}} на {{session()->get('old_edit_category')}}</div>
                 @endif

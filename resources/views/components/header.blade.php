@@ -7,10 +7,10 @@
                     <a class="nav-link active" aria-current="page" href="{{route('/')}}">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">О нас</a>
+                    <a class="nav-link" href="{{route('about')}}">О нас</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Каталог</a>
+                    <a class="nav-link" href="{{ route('catalog') }}">Каталог</a>
                 </li>
 
                 <li class="nav-item">

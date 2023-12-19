@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -16,13 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('/');
+Route::get('/', [MainController::class,'MainView'])->name('/');
 Route::view('/registration', 'users.registration')->name('register');
 Route::post('/registration', [UserController::class, 'register']);
 Route::view('/authorization', 'users.authorization')->name('auth');
 Route::post('/authorization', [UserController::class, 'authorization']);
+Route::get('/about', [MainController::class, 'MainView'])->name('about');
+Route::get('/catalog', [CatalogController::class, 'CatalogView'])->name('catalog');
+Route::get('catalog/product/{product}', [CatalogController::class, 'CatalogProductView'])->name('catalog_product');
 Route::middleware('auth')->group(function (){
     Route::get('/logout', [UserController::class , 'logout'])->name('logout');
     Route::middleware('role')->group(function (){
