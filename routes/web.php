@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Models\Orders;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +32,14 @@ Route::get('/catalog', [CatalogController::class, 'CatalogView'])->name('catalog
 Route::get('catalog/product/{product}', [CatalogController::class, 'CatalogProductView'])->name('catalog_product');
 Route::middleware('auth')->group(function (){
     Route::get('/logout', [UserController::class , 'logout'])->name('logout');
+    Route::get('/basket', [BasketController::class , 'BasketView'])->name('basket');
+    Route::post('/basket/add{product}', [BasketController::class, 'itemAdd'])->name('basket.add');
+    Route::post('/basket/remove{product}', [BasketController::class, 'itemRemove'])->name('basket.remove');
+    Route::post('/orders/create',[OrdersController::class, 'orderCreate'])->name('order.create');
+    Route::get('/orders',[OrdersController::class, 'orderView'])->name('orders');
+    Route::post('/orders/remove{order}',[OrdersController::class, 'orderRemove'])->name('order.remove');
+
+
     Route::middleware('role')->group(function (){
         Route::view('admin/', 'admins.admin')->name('admin');
         Route::get('admin/category', [CategoryController::class, 'CategoryView'])->name('category');
@@ -38,5 +50,9 @@ Route::middleware('auth')->group(function (){
         Route::post('admin/products', [ProductController::class, 'AddProductPost'])->name('add_product');
         Route::post('admin/delProduct{product}', [ProductController::class, 'DeleteProductPost'])->name('deleteProduct');
         Route::post('admin/editProduct{product}', [ProductController::class, 'EditProductPost'])->name('editProduct');
+
+        Route::get('admin/orders', [AdminController::class, 'adminOrderView'])->name('admin.order');
+        Route::post('admin/orders/sort', [AdminController::class, 'adminOrderView'])->name('admin.order.sort');
+        Route::post('admin/orders/{orderId}/status/{action}', [AdminController::class, 'changeStatusOrder'])->name('admin.order.status');
     });
 });

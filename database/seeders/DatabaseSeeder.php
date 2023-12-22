@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Basket;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +27,14 @@ class DatabaseSeeder extends Seeder
         'email' => 'admin',
          'isAdmin' => 1,
          'password' => Hash::make('admin11'),
+     ]);
+     User::insert([
+        'name' => 'Абоба',
+        'surname' => 'Абоба',
+        'login' => 'aboba',
+        'email' => 'aboba@example.com',
+         'isAdmin' => 0,
+         'password' => Hash::make('aboba11'),
      ]);
      Category::insert([
         'category_name' => 'Цветы'
@@ -76,6 +86,15 @@ class DatabaseSeeder extends Seeder
          'product_price' => '293756',
          'product_count' => '13434',
          'product_description' => 'Может печатать гачи песни',
+     ]);
+     Status::insert([
+        'status_name' => 'Новый'
+     ]);
+     Status::insert([
+        'status_name' => 'Подтверждён'
+     ]);
+     Status::insert([
+        'status_name' => 'Отменён'
      ]);
     }
 }

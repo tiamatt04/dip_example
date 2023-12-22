@@ -27,8 +27,8 @@
                     @if(\Illuminate\Support\Facades\Auth::user()-> isAdmin)
                         <a href="{{route('admin')}}" class="btn btn-outline-dark">Панель админа</a>
                     @else
-                        <a href="" class="btn btn-primary">Корзина</a>
-                        <a href="" class="btn btn-secondary">Личный кабинет</a>
+                        <a href="{{ route('basket') }}" class="btn btn-primary">Корзина</a>
+                        <a href="{{ route('orders') }}" class="btn btn-primary">Заказы</a>
                     @endif
                         <a href="{{route('logout')}}" class="btn btn-danger">Выйти</a>
                 @endauth

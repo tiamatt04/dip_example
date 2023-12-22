@@ -58,7 +58,8 @@
                                 </div>
                             </div>
                             @auth()
-                                <form action="" method="post" class="text-center mt-3">
+                                <form action="{{ route('basket.add', $product) }}" method="post" class="text-center mt-3">
+                                    @csrf
                                     <button type="submit" class="btn btn-outline-info">В корзину</button>
                                 </form>
                             @endauth

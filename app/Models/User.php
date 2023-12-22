@@ -19,4 +19,13 @@ class User extends Authenticatable
      */
     protected $guarded = ['id'];
 
+    public function orders()
+    {
+        $this->hasMany(Orders::class);
+    }
+
+    public function basket()
+    {
+        $this->hasOne(Basket::class);
+    }
 }
