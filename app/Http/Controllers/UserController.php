@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         if (Auth::attempt($request->validated())){
             $request->session()->regenerate();
-            return redirect()->route('about');
+            return redirect()->route('main');
         }
         return back();
     }
@@ -32,6 +32,7 @@ class UserController extends Controller
     {
         Auth::logout();
         $request->session()->regenerate();
-        return redirect()->route('about');
+        return redirect()->route('main');
     }
+
 }

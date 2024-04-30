@@ -44,6 +44,7 @@
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-success">+</button>
                                         </form>
+
                                     </div>
                                 </td>
 
@@ -79,8 +80,16 @@
                     <form method="post" action="{{ route('order.create') }}" class="text-center">
                         @csrf
                         <div class="mb-3">
-                            <h3 for="category_name" class="form-label text-primary">Введите пароль</h3>
-                            <input type="password" class="form-control" id="password" name="password">
+                            <h3 class="form-label text-primary">Выберите способ оплаты</h3>
+                            <select  aria-label="Default select example" type="text" class="form-control" id="type_payment" name="type_payment">
+                                <option>Оплата наличными</option>
+                                <option>Оплата банковской картой</option>
+                                <option>Оплата по QR-коду</option>
+                            </select>
+                            <div class="mb-3">
+                                <h3 class="form-label text-primary">Введите адресс доставки</h3>
+                                <input type="text" class="form-control" id="address" name="address">
+                            </div>
                         </div>
                         <div class="modal_footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>

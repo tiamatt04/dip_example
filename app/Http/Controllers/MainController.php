@@ -12,7 +12,7 @@ class MainController extends Controller
         $product = new Product();
         $products = $product->lastProduct();
         if (!empty($products)){
-            return view('about', compact('products'));
+            return view('main', compact('products'));
         }
     }
 }

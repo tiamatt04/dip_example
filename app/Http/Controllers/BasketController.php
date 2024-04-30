@@ -49,7 +49,7 @@ class BasketController extends Controller
             'product_id' => $product->id
         ]);
 
-        if (!$basketItem->exist) {
+        if ($basketItem->exist) {
             $basketItem->save();
         } else {
             if ($basketItem->count >= $product->product_count) {
@@ -67,6 +67,7 @@ class BasketController extends Controller
         }elseif ($referer == route('basket')){
             return redirect()->route('basket')->with(['basket_add_success' => true]);
         }
+
     }
 
     public function itemRemove(Product $product)

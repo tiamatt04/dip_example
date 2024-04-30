@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RoleMiddleware
+class ManagerRole
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::user()->isAdmin) return redirect()->route('main');
+        if (!Auth::user()->role == "manager") return redirect()->route('main');
         return $next($request);
     }
 }

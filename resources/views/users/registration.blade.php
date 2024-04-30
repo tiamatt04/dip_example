@@ -18,41 +18,10 @@
                         </div>
                         @enderror
                     </div>
-
                     <div class="mb-3">
-                        <label for="surname" class="form-label">Фамилия</label>
-                        <input type="text" class="form-control @error('surname') is-invalid @enderror" id="surname" name="surname">
-                        @error('surname')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="patronymic" class="form-label">Отчество</label>
-                        <input type="text" class="form-control @error('patronymic') is-invalid @enderror" id="patronymic" name="patronymic">
-                        @error('patronymic')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="login" class="form-label">Логин</label>
-                        <input type="text" class="form-control @error('login') is-invalid @enderror" id="login" name="login">
-                        @error('login')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Почта</label>
-                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
-                        @error('email')
+                        <label for="number" class="form-label text-danger fs-5">Номер телефона +7 *** (***)-**-**</label>
+                        <input type="text" class="form-control @error('number') is-invalid @enderror" id="number" name="number">
+                        @error('number')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -68,27 +37,6 @@
                         </div>
                         @enderror
                     </div>
-
-                    <div class="mb-3">
-                        <label for="repeatPassword" class="form-label">Повторите пароль</label>
-                        <input type="password" class="form-control @error('repeatPassword') is-invalid @enderror" id="repeatPassword" name="repeatPassword">
-                        @error('repeatPassword')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input @error('rules') is-invalid @enderror" id="rules">
-                        <label class="form-check-label" for="rules">Согласен с правилами регистрации</label>
-                        @error('rules')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-
                     <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                 </form>
             </div>

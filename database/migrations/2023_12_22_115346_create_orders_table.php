@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Status::class)->constrained('statuses')->cascadeOnDelete();
             $table->foreignIdFor(\App\Models\User::class)->constrained('users')->cascadeOnDelete();
             $table->string('order_comment');
+            $table->string('type_payment');
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

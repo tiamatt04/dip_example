@@ -19,7 +19,10 @@ class User extends Authenticatable
      */
     protected $guarded = ['id'];
 
-    public function orders()
+    /**
+     * @return void
+     */
+    public function orders(): void
     {
         $this->hasMany(Orders::class);
     }

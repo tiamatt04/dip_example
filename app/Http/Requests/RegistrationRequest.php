@@ -11,7 +11,7 @@ class RegistrationRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,30 +21,22 @@ class RegistrationRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'required|regex:/^[А-Яа-яЁё\s-]+$/u',
-            'surname' => 'required|regex:/^[А-Яа-яЁё\s-]+$/u',
-            'patronymic' => 'nullable|regex:/^[А-Яа-яЁё\s-]+$/u',
-            'login' => 'required|unique:users|regex:/^[A-Za-z0-9-]+$/u',
-            'email' => 'required|unique:users|email',
             'password' => 'required|min:6',
-            'repeatPassword' => 'required|same:password',
+            'number' => 'required|unique:users|regex:/^\+7(\d{3})\d{7}$/',
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'required' => 'Это поле обязательно для заполнения',
             'unique' => 'Значение уже занято',
-            'same' => 'Пароли не совпадают',
+            'number.regex' => 'Введите корректный номер телефона',
             'name.regex' => 'Разрешены только кириллица, пробел и тире',
-            'surname.regex' => 'Разрешены только кириллица, пробел и тире',
-            'patronymic.regex' => 'Разрешены только кириллица, пробел и тире',
-            'login.regex' => 'Разрешены только латиница, цифры и тире',
-            'email' => 'Введите корректный адрес',
             'min' => 'Пароль должен содержать не меньше 6 символов',
         ];
     }

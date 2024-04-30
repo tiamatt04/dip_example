@@ -16,6 +16,7 @@
                                     Заказ №{{$order->id}} (Статус: {{$order->status()}})
                                 </button>
                             </h2>
+
                             <div id="collapse{{$order->id}}" class="accordion-collapse collapse show"
                                  data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
@@ -29,12 +30,20 @@
                                             <tr>
                                                 <th>Количество</th>
                                                 <th>Статус</th>
+                                                <th>Блюдо</th>
+                                                <th>Назввание</th>
+                                                <th>Цена</th>
                                             </tr>
                                         </thread>
                                         <tbody class="text-center">
                                         <tr>
                                             <td>{{ $order->order_count }}</td>
                                             <td>{{ $order->status() }}</td>
+                                            @foreach($basketItems as $basketItem)
+                                                <td><img src="{{  asset('storage/app/public/'. $basketItem->product_photo)}}" alt=""></td>
+                                                <td> {{ $basketItem->product_name }}</td>
+                                                <td> {{ $basketItem->product_price }}</td>
+                                            @endforeach
                                         </tr>
                                         </tbody>
                                     </table>
@@ -42,7 +51,7 @@
                                         <form action="{{ route('order.remove', $order) }}" method="post">
                                             @csrf
 
-                                            <button type="submit" class="btn btn-danger mt-3">Удалить заказ</button>
+                                            <button type="submit " class="btn btn-danger mt-3">Удалить заказ</button>
                                         </form>
                                     @endif
                                 </div>

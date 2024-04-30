@@ -7,12 +7,11 @@
             <div class="col">
                 <form method="post">
                     @csrf
-                    <h2 class="text-center">Авторизация</h2>
                     <div class="mb-3">
-                        <label for="login" class="form-label">Логин</label>
-                        <input type="text" class="form-control @error('login') is-invalid @enderror" id="login" name="login">
-                        @error('login')
-                        <div class="alert alert-danger">
+                        <label for="name" class="form-label">Имя</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                        @error('name')
+                        <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror

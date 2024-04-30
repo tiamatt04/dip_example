@@ -5,11 +5,12 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use App\Models\Orders;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ManagerRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::view('/registration', 'users.registration')->name('register');
 Route::post('/registration', [UserController::class, 'register']);
 Route::view('/authorization', 'users.authorization')->name('auth');
 Route::post('/authorization', [UserController::class, 'authorization']);
-Route::get('/about', [MainController::class, 'MainView'])->name('about');
+Route::get('/main', [MainController::class, 'MainView'])->name('main');
 Route::get('/catalog', [CatalogController::class, 'CatalogView'])->name('catalog');
 Route::get('catalog/product/{product}', [CatalogController::class, 'CatalogProductView'])->name('catalog_product');
 Route::middleware('auth')->group(function (){
@@ -38,8 +39,12 @@ Route::middleware('auth')->group(function (){
     Route::post('/orders/create',[OrdersController::class, 'orderCreate'])->name('order.create');
     Route::get('/orders',[OrdersController::class, 'orderView'])->name('orders');
     Route::post('/orders/remove{order}',[OrdersController::class, 'orderRemove'])->name('order.remove');
-
-
+    Route::middleware(ManagerRole::class)->group(function (){
+        Route::view('manager/', 'managers.manager')->name('manager');
+        Route::get('manager/orders', [ManagerController::class,'ManagerOrderView'])->name('manager.order');
+        Route::post('manager/orders/sort', [ManagerController::class,'ManagerOrderView'])->name('manager.order.sort');
+        Route::post('manager/orders/{orderId}/status/{action}', [ManagerController::class,'changeStatusOrder'])->name('manager.order.status');
+    });
     Route::middleware('role')->group(function (){
         Route::view('admin/', 'admins.admin')->name('admin');
         Route::get('admin/category', [CategoryController::class, 'CategoryView'])->name('category');
@@ -56,3 +61,4 @@ Route::middleware('auth')->group(function (){
         Route::post('admin/orders/{orderId}/status/{action}', [AdminController::class, 'changeStatusOrder'])->name('admin.order.status');
     });
 });
+

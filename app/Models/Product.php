@@ -18,6 +18,6 @@ class Product extends Model
 
     public function lastProduct()
     {
-        return $this->latest()->limit(5)->get();
+        return $this->latest()->limit(12)->get();
     }
 }

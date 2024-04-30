@@ -11,18 +11,6 @@
                         <option value="desc" {{ request('sort_price') == 'desc' ? 'selected' : '' }}>По убыванию цены
                         </option>
                     </select>
-                    <select class="form-select" name="sort_name" id="">
-                        <option value="asc" {{ request('sort_name') == 'asc' ? 'selected' : '' }}>По названию (А-Я)
-                        </option>
-                        <option value="desc" {{ request('sort_name') == 'desc' ? 'selected' : '' }}>По названию (Я-А)
-                        </option>
-                    </select>
-                    <select class="form-select" name="sort_country" id="">
-                        <option value="asc" {{ request('sort_country') == 'asc' ? 'selected' : '' }}>По стране (А-Я)
-                        </option>
-                        <option value="desc" {{ request('sort_country') == 'desc' ? 'selected' : '' }}>По стране (Я-А)
-                        </option>
-                    </select>
                     <select class="form-select" name="category" id="">
                         <option value="">Все категории</option>
                         @foreach($categories as $category)

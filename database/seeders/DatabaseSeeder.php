@@ -20,73 +20,152 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-     User::insert([
-        'name' => 'admin',
-        'surname' => 'admin',
-        'login' => 'admin',
-        'email' => 'admin',
-         'isAdmin' => 1,
-         'password' => Hash::make('admin11'),
-     ]);
-     User::insert([
-        'name' => 'Абоба',
-        'surname' => 'Абоба',
-        'login' => 'aboba',
-        'email' => 'aboba@example.com',
-         'isAdmin' => 0,
-         'password' => Hash::make('aboba11'),
-     ]);
+        User::insert([
+            'name' => 'admin',
+            'number' => '+79049339896',
+            'isAdmin' => 1,
+            'role'=> 'admin',
+            'password' => Hash::make('admin11'),
+        ]);
+        User::insert([
+            'name' => 'Алина',
+            'number' => '+79514427884',
+            'isAdmin' => 0,
+            'role'=>'manager',
+            'password' => Hash::make('anila16'),
+        ]);
+        User::insert([
+            'name' => 'Наташа',
+            'number' => '+79514423684',
+            'isAdmin' => 0,
+            'password' => Hash::make('olivka2021ooo'),
+        ]);
      Category::insert([
         'category_name' => 'Цветы'
      ]);
      Category::insert([
         'category_name' => 'Дополнительно'
      ]);
-     Product::insert([
-         'product_name' => 'Спортики',
-         'category_id' => '1',
-         'product_photo' => 'Mcng66Tq6mu5gFfcTOFwX7f5pItglBnIHPITB80F.jpg',
-         'product_country' => 'Украина',
-         'product_price' => '248500',
-         'product_count' => '2',
-         'product_description' => 'Описание крутых спортиков',
-     ]);
-     Product::insert([
-         'product_name' => 'Спортики',
-         'category_id' => '1',
-         'product_photo' => 'Mcng66Tq6mu5gFfcTOFwX7f5pItglBnIHPITB80F.jpg',
-         'product_country' => 'Украина, Винница',
-         'product_price' => '248500',
-         'product_count' => '2',
-         'product_description' => 'Описание крутых спортиков',
-     ]);
-     Product::insert([
-         'product_name' => 'Спортики',
-         'category_id' => '1',
-         'product_photo' => 'Mcng66Tq6mu5gFfcTOFwX7f5pItglBnIHPITB80F.jpg',
-         'product_country' => 'Украина, Винница',
-         'product_price' => '248500',
-         'product_count' => '2',
-         'product_description' => 'Описание крутых спортиков',
-     ]);
-     Product::insert([
-         'product_name' => 'Виницианский маньяк',
-         'category_id' => '1',
-         'product_photo' => 'BV4xFBTlCpAKjIGtJ76iFgt7dPO6MkjYlR4U0xZb.jpg',
-         'product_country' => 'Украина, Винница',
-         'product_price' => '14135',
-         'product_count' => '1',
-         'product_description' => 'Бешенный мужик',
-     ]);
-     Product::insert([
-         'product_name' => 'Крутой мужик',
-         'category_id' => '1',
-         'product_photo' => 'mYvBYT4Wd0W8gNF4UUYwaMBFcQAgs63Wna2l4afS.jpg',
-         'product_country' => 'Америка',
-         'product_price' => '293756',
-         'product_count' => '13434',
-         'product_description' => 'Может печатать гачи песни',
-     ]);
+        Product::insert([
+            'product_name' => 'Унаги',
+            'category_id' => '1',
+            'product_photo' => 'MhdPisVXaA4k1PlOiLF7wFZOHwOTFnW0ITmgV4Dq.png',
+            'product_price' => '250',
+            'product_count' => '5',
+            'product_description' => 'угорь, рис для суси, нори, соус "унаги", кунжут',
+        ]);
+        Product::insert([
+            'product_name' => 'Сякэ',
+            'category_id' => '1',
+            'product_photo' => 'OUNNp8bvkN8dFWp46ElDLgJ93vNnl3tQ0ydmtRQi.png',
+            'product_price' => '200',
+            'product_count' => '5',
+            'product_description' => 'лосось, рис для суси, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Филадельфия',
+            'category_id' => '1',
+            'product_photo' => 'pcdwh2UlMNu9bxAzyfqQS0QSDozNxbzn3LNbjjle.png',
+            'product_price' => '156',
+            'product_count' => '5',
+            'product_description' => 'копчёный лосось, соус "филадельфия", рис для суси, огурец, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Магуро',
+            'category_id' => '1',
+            'product_photo' => 'oa5Z4UHmFWzz6ZbnaEL38gqf9fdnCJ9MtTXRCUSt.png',
+            'product_price' => '300',
+            'product_count' => '6',
+            'product_description' => 'тунец, рис для суси, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Хотатэ',
+            'category_id' => '1',
+            'product_photo' => 'uVGaEipmxHNJ55WJ8NFguyIMia8h2Ams15gSoYMX.png',
+            'product_price' => '250',
+            'product_count' => '5',
+            'product_description' => 'морской гребешок, рис для суси, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Унаги',
+            'category_id' => '1',
+            'product_photo' => 'aEz3sLViawPsBMtHx2Enu07wvskhDGrSQUvBFifl.png',
+            'product_price' => '250',
+            'product_count' => '5',
+            'product_description' => 'угорь, рис для суси, нори, соус "унаги", кунжут',
+        ]);
+        Product::insert([
+            'product_name' => 'Сякэ',
+            'category_id' => '1',
+            'product_photo' => 'W8KtqFzVx9xma7toGZ1Fqf9BzyY1atimCkzMGwSX.png',
+            'product_price' => '200',
+            'product_count' => '5',
+            'product_description' => 'лосось, рис для суси, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Филадельфия',
+            'category_id' => '1',
+            'product_photo' => 'oa5Z4UHmFWzz6ZbnaEL38gqf9fdnCJ9MtTXRCUSt.png',
+            'product_price' => '156',
+            'product_count' => '5',
+            'product_description' => 'копчёный лосось, соус "филадельфия", рис для суси, огурец, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Магуро',
+            'category_id' => '1',
+            'product_photo' => 'oa5Z4UHmFWzz6ZbnaEL38gqf9fdnCJ9MtTXRCUSt.png',
+            'product_price' => '300',
+            'product_count' => '6',
+            'product_description' => 'тунец, рис для суси, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Хотатэ',
+            'category_id' => '1',
+            'product_photo' => 'W8KtqFzVx9xma7toGZ1Fqf9BzyY1atimCkzMGwSX.png',
+            'product_price' => '250',
+            'product_count' => '5',
+            'product_description' => 'морской гребешок, рис для суси, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Унаги',
+            'category_id' => '1',
+            'product_photo' => 'KFdjQ6tyZDcEX0SqOEqTPuxXFYkiwtl77TpXA941.png',
+            'product_price' => '250',
+            'product_count' => '5',
+            'product_description' => 'угорь, рис для суси, нори, соус "унаги", кунжут',
+        ]);
+        Product::insert([
+            'product_name' => 'Сякэ',
+            'category_id' => '1',
+            'product_photo' => 'oa5Z4UHmFWzz6ZbnaEL38gqf9fdnCJ9MtTXRCUSt.png',
+            'product_price' => '200',
+            'product_count' => '5',
+            'product_description' => 'лосось, рис для суси, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Филадельфия',
+            'category_id' => '2',
+            'product_photo' => 'OUNNp8bvkN8dFWp46ElDLgJ93vNnl3tQ0ydmtRQi.png',
+            'product_price' => '156',
+            'product_count' => '5',
+            'product_description' => 'копчёный лосось, соус "филадельфия", рис для суси, огурец, васаби',
+        ]);
+        Product::insert([
+            'product_name' => 'Вакамэ сарада',
+            'category_id' => '2',
+            'product_photo' => 'KFdjQ6tyZDcEX0SqOEqTPuxXFYkiwtl77TpXA941.png',
+            'product_price' => '248',
+            'product_count' => '6',
+            'product_description' => 'маринованные водоросли, рис для суси, нори',
+        ]);
+        Product::insert([
+            'product_name' => 'Спайси унаги',
+            'category_id' => '2',
+            'product_photo' => 'mL7TEPhpIYbGnRsAHvXyCZAgwKJ6wAsYqJQtLibs.png',
+            'product_price' => '186',
+            'product_count' => '5',
+            'product_description' => 'угорь, соус "Спайси", рис для суси, нори, васаби',
+        ]);
      Status::insert([
         'status_name' => 'Новый'
      ]);
@@ -96,5 +175,7 @@ class DatabaseSeeder extends Seeder
      Status::insert([
         'status_name' => 'Отменён'
      ]);
+
     }
+
 }

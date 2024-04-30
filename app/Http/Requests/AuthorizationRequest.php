@@ -24,7 +24,7 @@ class AuthorizationRequest extends FormRequest
     public function rules()
     {
         return [
-            'login' => 'required',
+            'name' => 'required',
             'password' => 'required'
         ];
     }
